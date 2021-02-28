@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+    <header>
+        <center><img src="logos/hogwarts.png" alt="" class="logo"></center>
+
+
+        <nav>
+            <a href="#">Students</a>
+            <a href="#">Schedule</a>
+            <a href="#">Sorcerer's Stone</a>
+            <a href="#">Chamber</a>
+            <a href="#">Chess</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Dashboard</h1>
+        <section class="information">
+
+
+
+            <article>
+                <div class="text">
+                    <p id="active-students">40</p>
+                    <p>Students</p>
+                </div>
+            </article>
+
+            <article>
+                <div class="text">
+                    <p id="expelled-students">0</p>
+                    <p>Expelled</p>
+                </div>
+            </article>
+
+            <article>
+                <div class="text">
+                    <ul>
+                        <li>Gryffindor (<span id="gryffindor"></span>)</li>
+                        <li>Hufflepuff (<span id="huflepuff"></span>)</li>
+                        <li>Ravenclaw (<span id="ravenclaw"></span>)</li>
+                        <li>Slytherin (<span id="slytherin"></span>)</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article>
+                <div class="text">
+                    <ul>
+                        <li>♀ -<span id="female"></span></li>
+                        <li>♂ - <span id="male"></span></li>
+                    </ul>
+                </div>
+            </article>
+
+        </section>
+
+        <form action="">
+
+            <div class="filters">
+
+                <div class="filter" id="house">
+                    <Label>House</Label>
+
+                    <select name="house" id="house">
+                        <option data-action="filter" value="all">All</option>
+                        <option data-action="filter" value="gryffindor">Gryffindor</option>
+                        <option data-action="filter" value="hufflepuff">Hufflepuff</option>
+                        <option data-action="filter" value="ravenclaw">Ravenclaw</option>
+                        <option data-action="filter" value="slytherin">Slytherin</option>
+                        <option data-action="filter" value="barca">Barca</option>
+                    </select>
+                </div>
+
+                <div class="filter" id="gender">
+
+                    <Label>Gender</Label>
+
+                    <select name="gender" id="gender">
+                        <option data-action="filterGender" value="all">All</option>
+                        <option data-action="filterGender" value="boy">Boy</option>
+                        <option data-action="filterGender" value="girl">Girl</option>
+                    </select>
+
+                </div>
+
+                <div class="filter" id="blood-status">
+
+                    <Label>Blood Status</Label>
+
+                    <select name="bloodStatus" id="bloodStats">
+                        <option data-action="filterGender" value="all">All</option>
+                        <option data-action="filterGender" value="Full-blood">Full</option>
+                        <option data-action="filterGender" value="Half-blood">Half</option>
+                        <option data-action="filterGender" value="Muggle-born">Muggle</option>
+                    </select>
+
+                </div>
+
+                <div class="filter" id="status">
+
+                    <Label>Status</Label>
+
+                    <select name="status" id="expelled">
+                        <option data-action="filterGender" value="all">All</option>
+                        <option data-action="filterGender" value="false" selected="selected">Active</option>
+                        <option data-action="filterGender" value="true">Expelled</option>
+                    </select>
+
+                </div>
+
+
+
+                <button>Show All</button>
+
+            </div>
+
+            <label for="">Search for a student</label>
+
+            <input type="text">
+
+        </form>
+
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th></th>
+                    <th data-action="sort" data-sort-direction="asc" data-sort="firstName">Name</th>
+                    <th data-action="sort" data-sort-direction="asc" data-sort="gender">Gender</th>
+                    <th data-action="sort" data-sort-direction="asc" data-sort="house">House</th>
+                    <th data-action="sort" data-sort-direction="asc" data-sort="bloodStatus">Blood status</th>
+                    <th>Note</th>
+                    <th data-action="edit"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+            </tbody>
+
+            <template>
+                <tr>
+                    <td data-field="picture">
+                        <img src="images/abbott_h.png" alt="">
+                    </td>
+                    <td data-field="name">
+
+                    </td>
+                    <td data-field="gender">
+
+                    </td>
+                    <td data-field="house">
+                        <img src="" alt="" class="house-logo">
+
+                    </td>
+                    <td data-field="blood">
+
+                    </td>
+                    <td data-field="note">
+                        <ul class="notes"></ul>
+                    </td>
+                    <td data-field="edit">
+                        <p>Edit</p>
+
+                        <div class="control">
+                            <ul>
+                                <li class="prefect">Make <span id="current"></span> Prefect</li>
+                                <li class="squad">Add to inquisitorial squad</li>
+                                <li class="expell">Expell</li>
+                            </ul>
+                        </div>
+
+                    </td>
+                </tr>
+            </template>
+
+        </table>
+
+        <div class="modal">
+            <div class="profile">
+                <img src="" alt="" class="modal-picture">
+                <p class="role-prefect"></p>
+                <p class="role-squad"></p>
+            </div>
+            <div class="information">
+
+                <div class="item">
+                    <p class="line">First name</p>
+                    <p>
+                        <bold id="first"></bold>
+                    </p>
+                </div>
+
+                <div class="item">
+                    <p class="line">Middle name</p>
+                    <p>
+                        <bold id="middle"></bold>
+                    </p>
+                </div>
+
+                <div class="item">
+                    <p class="line">Last name</p>
+                    <p>
+                        <bold id="last"></bold>
+                    </p>
+                </div>
+
+                <div class="item">
+                    <p class="line">House</p>
+                    <p>
+                        <bold id="house"></bold>
+                    </p>
+                </div>
+
+                <div class="item">
+                    <p class="line">Gender</p>
+                    <p>
+                        <bold id="gender"></bold>
+                    </p>
+                </div>
+
+                <div class="item">
+                    <p class="line">Blood Status</p>
+                    <p>
+                        <bold id="status"></bold>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="close">×</div>
+
+        </div>
+
+        <div class="modal" id="prefect">
+            <h2>Info</h2>
+            <p>There can only be two prefects from the same house <br> and one of the same gender. <br>
+                Add <span class="current"></span> prefect and remove the current?</p>
+            <div class="buttons"><button id="remove">Add <span class="current"></span> as prefect</button>
+                <div class="close" id="ignore">×</div>
+
+
+            </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
