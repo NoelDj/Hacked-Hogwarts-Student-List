@@ -184,7 +184,7 @@ tr th {
 
 }
 
-[data-field=name]:hover {
+tbody tr:hover {
     background: rgba(0, 0, 0, .25)
 }
 
@@ -220,6 +220,8 @@ img {
 .house-logo {
     object-fit: contain;
 }
+
+
 
 .logo {
 
@@ -273,6 +275,17 @@ img {
 
 .profile {
     text-align: center;
+}
+
+.img-box {
+    position: relative;
+}
+
+.profile-logo {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    object-fit: contain;
 }
 
 .active {

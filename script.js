@@ -176,7 +176,7 @@ function handleObject(freshman) {
 
 
     /* uncomment if to make harry potter half blood */
-    if (allFamilies.pure.includes(student.lastName) /*  && !allFamilies.half.includes(student.lastName) */ ) {
+    if (allFamilies.pure.includes(student.lastName) /* && !allFamilies.half.includes(student.lastName) */) {
 
         student.bloodStatus = 'Full-blood'
     } else if (allFamilies.half.includes(student.lastName)) {
@@ -460,6 +460,8 @@ function displayList(eachStudent) {
 
     // set data
 
+    copy.querySelector('tr').id = eachStudent.firstName + '-' + eachStudent.lastName
+
     copy.querySelector("[data-field=picture] img").src = 'images/' + eachStudent.picture;
 
     copy.querySelector("[data-field=picture] img").alt = `${eachStudent.firstName} ${eachStudent.middleName} ${eachStudent.lastName} picture`;
@@ -601,6 +603,8 @@ function createModal(student, modal) {
     } else {
         modal.querySelector('.role-prefect').style.display = 'none'
     }
+    modal.querySelector(".profile-logo").src = 'logos/' + student.house.toLowerCase()+'.png'
+    modal.querySelector(".profile-logo").alt = student.house + ' logo'
 
 
     if (student.middleName) {
